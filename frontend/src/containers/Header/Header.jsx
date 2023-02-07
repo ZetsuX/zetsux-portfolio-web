@@ -40,7 +40,7 @@ const Header = () => {
       </motion.div>
 
       <motion.div
-        whileInView={{ y: [300, 0], opacity: [0, 1] }}
+        whileInView={{ y: [-40, 0], opacity: [0, 1] }}
         transition={{ duration: 1, delayChildren: 0.1 }}
         className="app__header-img"
       >
