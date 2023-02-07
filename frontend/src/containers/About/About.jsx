@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './About.scss';
 import { motion } from 'framer-motion';
-import { images } from '../../constants';
+import { urlFor, client } from '../../client';
 
 const About = () => {
-  const abouts = [
-    {title : 'Backend Development', description : "I am currenly learning backend development by doing projects using Node.Js or Laravel", imgUrl: images.about01},
-    {title : 'Frontend Development', description : "I am currently learning frontend development by studying Tailwind and NextJs (React)", imgUrl: images.about02},
-    {title : 'Fullstack Development', description : 'I want to be a fullstack developer, therefore learning both backend and frontend', imgUrl: images.about03},
-    {title : 'App Development', description : 'I want to learn about application development in the near future, starting with Flutter (Dart)', imgUrl: images.about04},
-  ]
+  const [abouts, setAbouts] = useState([]);
+
+  useEffect(() => {
+    const query = '*[_type == "abouts"]';
+    client.fetch(query)
+      .then((data) => setAbouts(data));
+  }, []);
 
 
   return (
     <>
-      <h2 className="head-text" style={{ marginTop: 30 }}>I'm currently in need of <span>Knowledges</span><br /> and <span>Experiences</span> in Programming
+      <h2 className="head-text">I'm currently in need of <span>Knowledges</span><br /> and <span>Experiences</span> in Programming
       </h2>
 
       <div className="app__profiles">
@@ -26,7 +27,7 @@ const About = () => {
             className="app__profile-item"
             key={about.title + index}
           >
-            <img src={about.imgUrl} alt={about.title} />
+            <img src={urlFor(about.imgUrl)} alt={about.title} />
             <h2 className="bold-text" style={{ marginTop: 20 }}>
               {about.title}
             </h2>
