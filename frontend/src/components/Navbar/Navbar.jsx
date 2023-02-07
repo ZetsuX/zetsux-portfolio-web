@@ -4,10 +4,10 @@ import { images } from '../../constants';
 import { HiOutlineMenu, HiX, HiHome, HiUser, HiOutlineCode, HiOutlineSparkles, HiPhone } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
+const items = ['home', 'about', 'projects', 'skills', 'contact'];
+
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
-  const items = ['home', 'about', 'projects', 'skills', 'contact'];
-
   return (
     <nav className="app__navbar">
       <div className='app__navbar-logo'>
