@@ -69,6 +69,7 @@ const Projects = () => {
                     whileHover={{ scale: [1, 0.9] }}
                     transition={{ duration: 0.25 }}
                     className="app__flex"
+                    style={{display: project.projectLink ? 'flex' : 'none' }}
                   >
                     <AiFillEye />
                   </motion.div>
