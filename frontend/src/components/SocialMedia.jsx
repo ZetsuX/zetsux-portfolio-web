@@ -4,18 +4,23 @@ import { BsLinkedin, BsInstagram, BsGithub, BsFacebook } from 'react-icons/bs'
 const SocialMedia = () => {
   return (
     <div className='app__social'>
-        <div>
-            <BsLinkedin />
-        </div>
-        <div>
-            <BsGithub />
-        </div>
-        <div>
-            <BsFacebook />
-        </div>
-        <div>
-            <BsInstagram />
-        </div>
+        <a href={process.env.REACT_APP_LINKEDIN_URL} target="_blank" rel="noreferrer">
+            <div>
+                <BsLinkedin />
+            </div>
+        </a>
+        
+        <a href={process.env.REACT_APP_GITHUB_URL} target="_blank" rel="noreferrer">
+            <div>
+                <BsGithub />
+            </div>
+        </a>
+        
+        <a href={process.env.REACT_APP_INSTAGRAM_URL} target="_blank" rel="noreferrer">
+            <div>
+                <BsInstagram />
+            </div>
+        </a>
     </div>
   )
 }
