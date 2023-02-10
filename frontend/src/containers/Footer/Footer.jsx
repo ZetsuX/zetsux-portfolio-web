@@ -31,8 +31,7 @@ const Footer = () => {
     console.log(scriptURL);
   
     fetch(scriptURL, { method: 'POST', body: formToSheet})
-      .then(response => {
-        console.log('Success!', response)
+      .then(() => {
         setLoading(false);
         setIsSubmitted(true);
       })
