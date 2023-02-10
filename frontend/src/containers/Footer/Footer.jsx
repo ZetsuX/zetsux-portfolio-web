@@ -3,7 +3,7 @@ import './Footer.scss';
 
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { client } from '../../client';
+// import { client } from '../../client';
 
 const Footer = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: ''});
@@ -18,21 +18,38 @@ const Footer = () => {
     setFormData({ ...formData, [name]: value });
   }
 
+  const scriptURL = process.env.REACT_APP_SHEET_SCRIPT_URL;
+
   const handleSubmit = () => {
     setLoading(true);
 
-    const contact = {
-      _type: 'contact',
-      name: name,
-      email: email,
-      message: message
-    }
+    const formToSheet = new FormData();
+    formToSheet.append('name', name);
+    formToSheet.append('email', email);
+    formToSheet.append('message', message);
 
-    client.create(contact)
-      .then(() => {
+    console.log(scriptURL);
+  
+    fetch(scriptURL, { method: 'POST', body: formToSheet})
+      .then(response => {
+        console.log('Success!', response)
         setLoading(false);
         setIsSubmitted(true);
       })
+      .catch(error => console.error('Error!', error.message))
+
+    // const contact = {
+    //   _type: 'contact',
+    //   name: name,
+    //   email: email,
+    //   message: message
+    // }
+
+    // client.create(contact)
+    //   .then(() => {
+    //     setLoading(false);
+    //     setIsSubmitted(true);
+    //   })
   }
 
   return (
@@ -76,8 +93,8 @@ const Footer = () => {
         </div>
       ) : (
         <div>
-          <h3 className="head-text">
-            Your message is sent <span>successfully</span>, Thanks for reaching out!
+          <h3 className="head-text" style={{ marginTop: 20 }}>
+            <span>Thanks</span> for reaching out. I'll get back to you!
           </h3>
         </div>
       )}
