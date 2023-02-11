@@ -14,7 +14,7 @@ A responsive personal portfolio website of myself containing my skills, projects
 
 The navigation bar containing a self-made logo and hover-able + click-able menus for navigation purposes.
 
-![Navbar Image](https://cdn.discordapp.com/attachments/995337235211763722/1073833240353312788/image.png)
+![Navbar Image](https://cdn.discordapp.com/attachments/995337235211763722/1073837083430494269/image.png)
 
 ### Social Media Component
 
