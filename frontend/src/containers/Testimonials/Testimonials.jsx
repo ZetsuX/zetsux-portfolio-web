@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Testimonials.scss';
-import { motion } from 'framer-motion';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -59,6 +58,6 @@ const Testimonials = () => {
 
 export default AppWrap(
   MotionWrap(Testimonials, 'app__testimonial'), 
-  'testimonial',
+  'testimonials',
   "app__primarybg"
 );
